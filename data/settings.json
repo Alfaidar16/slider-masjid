@@ -1,0 +1,65 @@
+{
+  "pin": "1234",
+  "mosque": {
+    "name": "Masjid Lailatul Qadri",
+    "city": "Maros",
+    "country": "Indonesia",
+    "method": 20
+  },
+  "iqamahOffsets": {
+    "Fajr": 10,
+    "Dhuhr": 10,
+    "Asr": 10,
+    "Maghrib": 5,
+    "Isha": 10
+  },
+  "theme": {
+    "primaryColor": "#0b6e4f",
+    "accentColor": "#f4c430"
+  },
+  "announcements": [
+    {
+      "id": "a1",
+      "type": "umum",
+      "title": "Selamat Datang",
+      "body": "di Masjid Lailatul Qadri. Mohon menjaga kebersihan dan ketertiban masjid.",
+      "duration": 8000
+    },
+    {
+      "id": "a1785677969716",
+      "type": "kajian",
+      "title": "Ba'da Subuh Senin-Kamis",
+      "body": "Terbuka Untuk Umum",
+      "duration": 8000,
+      "speaker": "Ustadz Fahruddin ST"
+    },
+    {
+      "id": "a1785677886782",
+      "type": "kajian",
+      "title": "Ba'da Subuh Jum'at-Ahad",
+      "body": "Terbuka Untuk Umum",
+      "duration": 8000,
+      "speaker": "Ustadz Dr H Agus Masykur Lc, M.Fil."
+    },
+    {
+      "id": "a5-contoh-hadist",
+      "type": "hadist",
+      "title": "Hadist",
+      "body": "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lain.",
+      "narrator": "HR. Ahmad, Thabrani, Daruquthni",
+      "duration": 9000
+    },
+    {
+      "id": "a1785677631710",
+      "type": "laporan",
+      "title": "Laporan Keuangan",
+      "body": "",
+      "duration": 8000,
+      "period": "31 Juli 2026",
+      "saldoAwal": "69,746,000",
+      "pemasukan": "1.729.000",
+      "pengeluaran": "9.567.500",
+      "saldoAkhir": "61.907.500"
+    }
+  ]
+}
