@@ -225,26 +225,43 @@ function goToSlide(index) {
 
   const prayerEl = document.getElementById('heroSlidePrayer');
   const textEl = document.getElementById('heroSlideText');
+  const customEl = document.getElementById('heroSlideCustom');
   const heroEl = document.getElementById('hero');
+  const dashboardEl = document.getElementById('dashboard');
 
   let duration = PRAYER_SLIDE_DURATION;
   heroEl.classList.remove('prayer-active', 'nasehat-active');
+  dashboardEl.classList.remove('custom-active');
 
   if (slideKey === 'prayer') {
     prayerEl.classList.add('show');
     textEl.classList.remove('show');
+    customEl.classList.remove('show');
     heroEl.classList.add('prayer-active');
   } else {
     const item = state.announcements.find(a => a.id === slideKey);
     if (!item) {
       return goToSlide(state.slideIndex + 1);
     }
-    const isFirst = state.announcements[0] && state.announcements[0].id === item.id;
-    renderAnnounceSlide(item, isFirst);
-    textEl.classList.add('show');
     prayerEl.classList.remove('show');
-    if ((item.type || 'umum') === 'nasehat') {
-      heroEl.classList.add('nasehat-active');
+
+    if ((item.type || 'umum') === 'custom' && item.file) {
+      const frame = document.getElementById('heroCustomFrame');
+      const targetSrc = '/slides/' + item.file;
+      if (!frame.src.endsWith(targetSrc)) {
+        frame.src = targetSrc;
+      }
+      textEl.classList.remove('show');
+      customEl.classList.add('show');
+      dashboardEl.classList.add('custom-active');
+    } else {
+      const isFirst = state.announcements[0] && state.announcements[0].id === item.id;
+      renderAnnounceSlide(item, isFirst);
+      textEl.classList.add('show');
+      customEl.classList.remove('show');
+      if ((item.type || 'umum') === 'nasehat') {
+        heroEl.classList.add('nasehat-active');
+      }
     }
     duration = item.duration || 8000;
   }
@@ -257,6 +274,7 @@ function tickerTextFor(item) {
   const type = item.type || 'umum';
   if (type === 'nasehat') return item.body;
   if (type === 'laporan') return `${item.title}${item.period ? ' ' + item.period : ''}: Saldo Akhir ${item.saldoAkhir || '-'}`;
+  if (type === 'custom') return item.title;
   return item.body ? `${item.title}: ${item.body}` : item.title;
 }
 

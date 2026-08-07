@@ -69,6 +69,7 @@
       <option value="laporan">Laporan Keuangan</option>
       <option value="hadist">Hadist</option>
       <option value="nasehat">Nasehat</option>
+      <option value="custom">Custom HTML (file)</option>
     </select>
 
     <div id="fieldTitleWrap">
@@ -102,6 +103,12 @@
       <input type="text" id="newPengeluaran" placeholder="cth: Rp 3.950.000">
       <label for="newSaldoAkhir">Saldo Akhir</label>
       <input type="text" id="newSaldoAkhir" placeholder="cth: Rp 4.307.000">
+    </div>
+
+    <div id="fieldCustom" class="hidden">
+      <label for="newFile">Nama File HTML</label>
+      <input type="text" id="newFile" placeholder="cth: slider1.html">
+      <p style="font-size:0.8rem;color:#888;margin:0.3em 0 0;">File harus sudah ada di folder <code>public/slides/</code> di server.</p>
     </div>
 
     <div id="fieldBodyWrap">

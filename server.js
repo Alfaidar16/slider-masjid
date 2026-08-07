@@ -121,7 +121,7 @@ app.post('/api/announcements', checkPin, (req, res) => {
   const settings = readSettings();
   const {
     title, body, duration, type, speaker, amount, narrator,
-    period, saldoAwal, pemasukan, pengeluaran, saldoAkhir
+    period, saldoAwal, pemasukan, pengeluaran, saldoAkhir, file
   } = req.body;
   const t = type || 'umum';
 
@@ -129,6 +129,8 @@ app.post('/api/announcements', checkPin, (req, res) => {
     if (!saldoAkhir) return res.status(400).json({ error: 'Saldo akhir wajib diisi' });
   } else if (t === 'nasehat') {
     if (!body) return res.status(400).json({ error: 'Teks nasehat wajib diisi' });
+  } else if (t === 'custom') {
+    if (!file) return res.status(400).json({ error: 'Nama file HTML wajib diisi' });
   } else if (!title || !body) {
     return res.status(400).json({ error: 'title dan body wajib diisi' });
   }
@@ -136,7 +138,7 @@ app.post('/api/announcements', checkPin, (req, res) => {
   const announcement = {
     id: 'a' + Date.now(),
     type: t,
-    title: title || (t === 'nasehat' ? 'Nasehat' : t === 'laporan' ? 'Laporan Keuangan' : title),
+    title: title || (t === 'nasehat' ? 'Nasehat' : t === 'laporan' ? 'Laporan Keuangan' : t === 'custom' ? 'Slide Kustom' : title),
     body: body || '',
     duration: duration || 8000,
     ...(speaker ? { speaker } : {}),
@@ -146,7 +148,8 @@ app.post('/api/announcements', checkPin, (req, res) => {
     ...(saldoAwal ? { saldoAwal } : {}),
     ...(pemasukan ? { pemasukan } : {}),
     ...(pengeluaran ? { pengeluaran } : {}),
-    ...(saldoAkhir ? { saldoAkhir } : {})
+    ...(saldoAkhir ? { saldoAkhir } : {}),
+    ...(file ? { file } : {})
   };
   settings.announcements.push(announcement);
   writeSettings(settings);
@@ -161,7 +164,7 @@ app.put('/api/announcements/:id', checkPin, (req, res) => {
 
   const {
     title, body, duration, type, speaker, amount, narrator,
-    period, saldoAwal, pemasukan, pengeluaran, saldoAkhir
+    period, saldoAwal, pemasukan, pengeluaran, saldoAkhir, file
   } = req.body;
   settings.announcements[idx] = {
     ...settings.announcements[idx],
@@ -176,7 +179,8 @@ app.put('/api/announcements/:id', checkPin, (req, res) => {
     ...(saldoAwal !== undefined ? { saldoAwal } : {}),
     ...(pemasukan !== undefined ? { pemasukan } : {}),
     ...(pengeluaran !== undefined ? { pengeluaran } : {}),
-    ...(saldoAkhir !== undefined ? { saldoAkhir } : {})
+    ...(saldoAkhir !== undefined ? { saldoAkhir } : {}),
+    ...(file !== undefined ? { file } : {})
   };
   writeSettings(settings);
   io.emit('announcements-updated', settings.announcements);

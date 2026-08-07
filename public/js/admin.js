@@ -97,16 +97,16 @@ async function loadSettings() {
   renderAnnouncements();
 }
 
-const TYPE_LABELS = { umum: 'Umum', kajian: 'Kajian', infaq: 'Infaq & Keuangan', laporan: 'Laporan Keuangan', hadist: 'Hadist', nasehat: 'Nasehat' };
-const TYPE_GROUPS = { kajian: ['fieldSpeaker'], infaq: ['fieldAmount'], hadist: ['fieldNarrator'], laporan: ['fieldLaporan'] };
-const ALL_TYPE_GROUPS = ['fieldSpeaker', 'fieldAmount', 'fieldNarrator', 'fieldLaporan'];
+const TYPE_LABELS = { umum: 'Umum', kajian: 'Kajian', infaq: 'Infaq & Keuangan', laporan: 'Laporan Keuangan', hadist: 'Hadist', nasehat: 'Nasehat', custom: 'Custom HTML' };
+const TYPE_GROUPS = { kajian: ['fieldSpeaker'], infaq: ['fieldAmount'], hadist: ['fieldNarrator'], laporan: ['fieldLaporan'], custom: ['fieldCustom'] };
+const ALL_TYPE_GROUPS = ['fieldSpeaker', 'fieldAmount', 'fieldNarrator', 'fieldLaporan', 'fieldCustom'];
 
 function updateTypeFields() {
   const type = el('newType').value;
   ALL_TYPE_GROUPS.forEach(id => el(id).classList.add('hidden'));
   (TYPE_GROUPS[type] || []).forEach(id => el(id).classList.remove('hidden'));
   el('fieldTitleWrap').classList.toggle('hidden', type === 'nasehat');
-  el('fieldBodyWrap').classList.toggle('hidden', type === 'laporan');
+  el('fieldBodyWrap').classList.toggle('hidden', type === 'laporan' || type === 'custom');
   el('newBodyLabel').textContent = type === 'nasehat' ? 'Teks Nasehat' : 'Isi Pengumuman';
 }
 el('newType').addEventListener('change', updateTypeFields);
@@ -118,7 +118,7 @@ function renderAnnouncements() {
   settings.announcements.forEach((a, idx) => {
     const item = document.createElement('div');
     item.className = 'announce-item';
-    const extra = a.speaker || a.amount || a.narrator ||
+    const extra = a.speaker || a.amount || a.narrator || a.file ||
       (a.type === 'laporan' ? `${a.period || ''} · Saldo Akhir ${a.saldoAkhir || '-'}` : '');
     item.innerHTML = `
       <div class="title-row">
@@ -204,6 +204,7 @@ el('addAnnounceBtn').addEventListener('click', async () => {
   const pemasukan = el('newPemasukan').value.trim();
   const pengeluaran = el('newPengeluaran').value.trim();
   const saldoAkhir = el('newSaldoAkhir').value.trim();
+  const file = el('newFile').value.trim();
 
   if (type === 'nasehat') {
     title = title || 'Nasehat';
@@ -215,6 +216,12 @@ el('addAnnounceBtn').addEventListener('click', async () => {
     title = title || 'Laporan Keuangan';
     if (!saldoAkhir) {
       showToast('Saldo akhir wajib diisi.');
+      return;
+    }
+  } else if (type === 'custom') {
+    title = title || 'Slide Kustom';
+    if (!file) {
+      showToast('Nama file HTML wajib diisi.');
       return;
     }
   } else if (!title || !body) {
@@ -230,10 +237,11 @@ el('addAnnounceBtn').addEventListener('click', async () => {
         ...(type === 'kajian' ? { speaker } : {}),
         ...(type === 'infaq' ? { amount } : {}),
         ...(type === 'hadist' ? { narrator } : {}),
-        ...(type === 'laporan' ? { period, saldoAwal, pemasukan, pengeluaran, saldoAkhir } : {})
+        ...(type === 'laporan' ? { period, saldoAwal, pemasukan, pengeluaran, saldoAkhir } : {}),
+        ...(type === 'custom' ? { file } : {})
       })
     });
-    ['newTitle', 'newBody', 'newSpeaker', 'newAmount', 'newNarrator', 'newPeriod', 'newSaldoAwal', 'newPemasukan', 'newPengeluaran', 'newSaldoAkhir']
+    ['newTitle', 'newBody', 'newSpeaker', 'newAmount', 'newNarrator', 'newPeriod', 'newSaldoAwal', 'newPemasukan', 'newPengeluaran', 'newSaldoAkhir', 'newFile']
       .forEach(id => { el(id).value = ''; });
     el('newDuration').value = 8;
     settings = await apiFetch('/api/settings');
@@ -245,8 +253,8 @@ el('addAnnounceBtn').addEventListener('click', async () => {
 });
 
 async function editAnnouncement(a) {
-  const validTypes = ['umum', 'kajian', 'infaq', 'laporan', 'hadist', 'nasehat'];
-  const typeInput = prompt('Jenis (umum/kajian/infaq/laporan/hadist/nasehat):', a.type || 'umum');
+  const validTypes = ['umum', 'kajian', 'infaq', 'laporan', 'hadist', 'nasehat', 'custom'];
+  const typeInput = prompt('Jenis (umum/kajian/infaq/laporan/hadist/nasehat/custom):', a.type || 'umum');
   if (typeInput === null) return;
   const type = validTypes.includes(typeInput.trim()) ? typeInput.trim() : (a.type || 'umum');
 
@@ -258,7 +266,7 @@ async function editAnnouncement(a) {
     title = a.title || 'Nasehat';
   }
 
-  let speaker, amount, narrator, period, saldoAwal, pemasukan, pengeluaran, saldoAkhir;
+  let speaker, amount, narrator, period, saldoAwal, pemasukan, pengeluaran, saldoAkhir, file;
   if (type === 'kajian') {
     speaker = prompt('Pemateri & jadwal:', a.speaker || '');
     if (speaker === null) return;
@@ -279,10 +287,13 @@ async function editAnnouncement(a) {
     if (pengeluaran === null) return;
     saldoAkhir = prompt('Saldo Akhir:', a.saldoAkhir || '');
     if (saldoAkhir === null) return;
+  } else if (type === 'custom') {
+    file = prompt('Nama file HTML (di folder public/slides/):', a.file || '');
+    if (file === null) return;
   }
 
   let body = a.body;
-  if (type !== 'laporan') {
+  if (type !== 'laporan' && type !== 'custom') {
     body = prompt(type === 'nasehat' ? 'Teks nasehat:' : 'Isi pengumuman:', a.body || '');
     if (body === null) return;
   }
@@ -297,7 +308,8 @@ async function editAnnouncement(a) {
         ...(type === 'kajian' ? { speaker } : {}),
         ...(type === 'infaq' ? { amount } : {}),
         ...(type === 'hadist' ? { narrator } : {}),
-        ...(type === 'laporan' ? { period, saldoAwal, pemasukan, pengeluaran, saldoAkhir } : {})
+        ...(type === 'laporan' ? { period, saldoAwal, pemasukan, pengeluaran, saldoAkhir } : {}),
+        ...(type === 'custom' ? { file } : {})
       })
     });
     settings = await apiFetch('/api/settings');
