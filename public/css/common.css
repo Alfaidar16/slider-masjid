@@ -1,9 +1,9 @@
 :root {
-  --primary: #0b6e4f;
-  --primary-dark: #073d2b;
+  --primary: #123a5e;
+  --primary-dark: #081f33;
   --accent: #f4c430;
   --text: #f5f5f0;
-  --text-dim: #cfd8d3;
+  --text-dim: #cfd8e0;
 }
 
 * {

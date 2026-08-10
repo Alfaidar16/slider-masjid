@@ -8,12 +8,9 @@ const state = {
 };
 
 const PRAYER_SLIDE_DURATION = 10000;
-const FARD_ORDER = ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
+const HERO_IMAGES = ['hero.png', 'hero2.jpeg', 'hero3.jpeg', 'hero4.jpeg', 'hero5.jpeg'];
+const HERO_PHOTO_INTERVAL = 12000;
 const GRID_ORDER = ['Imsak', 'Fajr', 'Sunrise', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'];
-const LABELS = {
-  Imsak: 'Imsak', Fajr: 'Subuh', Sunrise: 'Syuruq', Dhuhr: 'Dzuhur',
-  Asr: 'Ashar', Maghrib: 'Maghrib', Isha: 'Isya'
-};
 
 async function loadSettings() {
   const res = await fetch('/api/settings');
@@ -37,30 +34,11 @@ async function loadPrayerTimes() {
   }
 }
 
-function parseTimeToday(hhmm) {
-  const clean = hhmm.split(' ')[0];
-  const [h, m] = clean.split(':').map(Number);
-  const d = new Date();
-  d.setHours(h, m, 0, 0);
-  return d;
-}
-
-function getNextFard() {
-  const now = new Date();
-  for (const key of FARD_ORDER) {
-    const t = parseTimeToday(state.prayerTimes.timings[key]);
-    if (t > now) return { key, time: t };
-  }
-  const t = parseTimeToday(state.prayerTimes.timings.Fajr);
-  t.setDate(t.getDate() + 1);
-  return { key: 'Fajr', time: t };
-}
-
 function renderPrayerGrid() {
   const grid = document.getElementById('prayerGrid');
   grid.innerHTML = '';
   if (!state.prayerTimes) return;
-  const next = getNextFard();
+  const next = getNextFard(state.prayerTimes.timings);
 
   GRID_ORDER.forEach(key => {
     const box = document.createElement('div');
@@ -75,15 +53,6 @@ function updateActiveBox(activeKey) {
   [...grid.children].forEach((box, i) => {
     box.classList.toggle('active', GRID_ORDER[i] === activeKey);
   });
-}
-
-function formatDuration(ms) {
-  const totalSec = Math.max(0, Math.floor(ms / 1000));
-  const h = Math.floor(totalSec / 3600);
-  const m = Math.floor((totalSec % 3600) / 60);
-  const s = totalSec % 60;
-  const pad = n => String(n).padStart(2, '0');
-  return h > 0 ? `${pad(h)}:${pad(m)}:${pad(s)}` : `${pad(m)}:${pad(s)}`;
 }
 
 const PRE_ADZAN_WINDOW_MS = 60 * 1000;
@@ -129,7 +98,7 @@ function tick() {
   });
 
   if (state.prayerTimes && state.settings) {
-    const next = getNextFard();
+    const next = getNextFard(state.prayerTimes.timings, now);
     const countdown = formatDuration(next.time - now);
     document.getElementById('heroNextLabel').textContent = `Menuju ${LABELS[next.key]}`;
     document.getElementById('heroCountdown').textContent = countdown;
@@ -307,6 +276,31 @@ function hideStatus() {
   document.getElementById('statusBanner').classList.remove('show');
 }
 
+// ---- Background hero: gonta-ganti gambar dari folder images ----
+function initHeroPhotoRotation() {
+  if (!HERO_IMAGES.length) return;
+
+  const a = document.getElementById('heroPhotoA');
+  const b = document.getElementById('heroPhotoB');
+  let index = 0;
+  let useA = true;
+
+  a.style.backgroundImage = `url('/images/${HERO_IMAGES[0]}')`;
+  a.classList.add('show');
+
+  if (HERO_IMAGES.length <= 1) return;
+
+  setInterval(() => {
+    index = (index + 1) % HERO_IMAGES.length;
+    const next = useA ? b : a;
+    const prev = useA ? a : b;
+    next.style.backgroundImage = `url('/images/${HERO_IMAGES[index]}')`;
+    next.classList.add('show');
+    prev.classList.remove('show');
+    useA = !useA;
+  }, HERO_PHOTO_INTERVAL);
+}
+
 // ---- Socket.io live updates ----
 const socket = io();
 socket.on('connect', hideStatus);
@@ -326,6 +320,7 @@ socket.on('announcements-updated', (announcements) => {
 
 // ---- Init ----
 (async function init() {
+  initHeroPhotoRotation();
   await loadSettings();
   await loadPrayerTimes();
   tick();
