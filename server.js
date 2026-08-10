@@ -60,18 +60,26 @@ async function getPrayerTimes(settings) {
 
   const timings = json.data.timings;
   const hijri = json.data.date.hijri;
+  const corrections = settings.mosque.timeCorrections || {};
+
+  function applyCorrection(key, hhmm) {
+    const offsetMin = corrections[key] || 0;
+    const [h, m] = hhmm.split(' ')[0].split(':').map(Number);
+    const d = new Date(2000, 0, 1, h, m + offsetMin);
+    return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+  }
 
   const data = {
     date: today,
     hijri: `${hijri.day} ${hijri.month.en} ${hijri.year} H`,
     timings: {
-      Imsak: timings.Imsak,
-      Fajr: timings.Fajr,
-      Sunrise: timings.Sunrise,
-      Dhuhr: timings.Dhuhr,
-      Asr: timings.Asr,
-      Maghrib: timings.Maghrib,
-      Isha: timings.Isha
+      Imsak: applyCorrection('Imsak', timings.Imsak),
+      Fajr: applyCorrection('Fajr', timings.Fajr),
+      Sunrise: applyCorrection('Sunrise', timings.Sunrise),
+      Dhuhr: applyCorrection('Dhuhr', timings.Dhuhr),
+      Asr: applyCorrection('Asr', timings.Asr),
+      Maghrib: applyCorrection('Maghrib', timings.Maghrib),
+      Isha: applyCorrection('Isha', timings.Isha)
     }
   };
 
