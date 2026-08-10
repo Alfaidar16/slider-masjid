@@ -41,15 +41,17 @@ let prayerCache = { key: null, date: null, data: null };
 
 async function getPrayerTimes(settings) {
   const today = new Date().toISOString().slice(0, 10);
-  const key = `${settings.mosque.city}|${settings.mosque.country}|${settings.mosque.method}`;
+  const key = `${settings.mosque.latitude}|${settings.mosque.longitude}|${settings.mosque.method}`;
 
   if (prayerCache.key === key && prayerCache.date === today && prayerCache.data) {
     return prayerCache.data;
   }
 
-  const url = new URL('https://api.aladhan.com/v1/timingsByCity');
-  url.searchParams.set('city', settings.mosque.city);
-  url.searchParams.set('country', settings.mosque.country);
+  // Pakai koordinat langsung (bukan timingsByCity) karena geocoding nama kota
+  // di Aladhan API tidak selalu akurat untuk kota-kota di Indonesia.
+  const url = new URL('https://api.aladhan.com/v1/timings');
+  url.searchParams.set('latitude', settings.mosque.latitude);
+  url.searchParams.set('longitude', settings.mosque.longitude);
   url.searchParams.set('method', settings.mosque.method);
 
   const resp = await fetch(url);

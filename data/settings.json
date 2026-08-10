@@ -4,6 +4,8 @@
     "name": "Masjid Lailatul Qadri",
     "city": "Maros",
     "country": "Indonesia",
+    "latitude": -5.0013,
+    "longitude": 119.5720,
     "method": 20
   },
   "iqamahOffsets": {

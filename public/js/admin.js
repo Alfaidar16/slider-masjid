@@ -86,6 +86,8 @@ async function loadSettings() {
   el('fName').value = settings.mosque.name;
   el('fCity').value = settings.mosque.city;
   el('fCountry').value = settings.mosque.country;
+  el('fLatitude').value = settings.mosque.latitude;
+  el('fLongitude').value = settings.mosque.longitude;
   el('fMethod').value = String(settings.mosque.method);
 
   el('oFajr').value = settings.iqamahOffsets.Fajr;
@@ -158,6 +160,8 @@ el('saveMosqueBtn').addEventListener('click', async () => {
           name: el('fName').value.trim(),
           city: el('fCity').value.trim(),
           country: el('fCountry').value.trim(),
+          latitude: Number(el('fLatitude').value),
+          longitude: Number(el('fLongitude').value),
           method: Number(el('fMethod').value)
         }
       })
