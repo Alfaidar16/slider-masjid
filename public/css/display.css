@@ -138,13 +138,13 @@ html, body {
 }
 
 .hero-eyebrow {
-  font-size: 5vmin;
+  font-size: 14vh;
   font-weight: 600;
   color: var(--text);
 }
 
 .hero-title {
-  font-size: 5vmin;
+  font-size: 12vh;
   font-weight: 800;
   color: var(--accent);
   margin: 1vmin 0;
@@ -310,7 +310,7 @@ html, body {
 }
 
 .hero-countdown {
-  font-size: 5vmin;
+  font-size: 10vh;
   font-weight: 800;
   color: var(--text);
   font-variant-numeric: tabular-nums;

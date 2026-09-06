@@ -102,7 +102,6 @@ function tick() {
     const countdown = formatDuration(next.time - now);
     document.getElementById('heroNextLabel').textContent = `Menuju ${LABELS[next.key]}`;
     document.getElementById('heroCountdown').textContent = countdown;
-    document.getElementById('featPrayerSub').textContent = `Menuju ${LABELS[next.key]} — ${countdown}`;
     updateActiveBox(next.key);
     updatePreAdzan(now);
     updateIqamah(now);
@@ -216,10 +215,7 @@ function goToSlide(index) {
 
     if ((item.type || 'umum') === 'custom' && item.file) {
       const frame = document.getElementById('heroCustomFrame');
-      const targetSrc = '/slides/' + item.file;
-      if (!frame.src.endsWith(targetSrc)) {
-        frame.src = targetSrc;
-      }
+      frame.src = '/slides/' + item.file;
       textEl.classList.remove('show');
       customEl.classList.add('show');
       dashboardEl.classList.add('custom-active');
