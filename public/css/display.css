@@ -144,7 +144,7 @@ html, body {
 }
 
 .hero-title {
-  font-size: 12vh;
+  font-size: 8vh;
   font-weight: 800;
   color: var(--accent);
   margin: 1vmin 0;
