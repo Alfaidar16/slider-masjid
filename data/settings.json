@@ -66,10 +66,10 @@
       "title": "Poster Nasehat",
       "body": "",
       "file": "slider2.html",
-      "duration": 20000
+      "duration": 60000
     },
     {
-      "id": "a10-arbain-1",
+      "id": "a10-arbain-1", 
       "type": "hadist",
       "title": "Hadist Arbain Nawawi #1",
       "body": "Sesungguhnya setiap amalan tergantung niatnya, dan setiap orang akan mendapatkan sesuai apa yang ia niatkan.",
@@ -78,7 +78,7 @@
     },
     {
       "id": "a13-kumpulan-video",
-      "type": "custom",
+      "type": "custom", 
       "title": "Kumpulan Video",
       "body": "",
       "file": "slider4.html",
