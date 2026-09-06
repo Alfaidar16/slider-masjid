@@ -34,14 +34,14 @@
       "type": "umum",
       "title": "Selamat Datang",
       "body": "di Masjid Lailatul Qadri. Mohon menjaga kebersihan dan ketertiban masjid.",
-      "duration": 8000
+      "duration": 15000
     },
     {
       "id": "a1785677969716",
       "type": "kajian",
       "title": "Ba'da Subuh Senin-Kamis",
       "body": "Terbuka Untuk Umum",
-      "duration": 8000,
+      "duration": 20000,
       "speaker": "Ustadz Fahruddin ST"
     },
     {
@@ -49,7 +49,7 @@
       "type": "kajian",
       "title": "Ba'da Subuh Jum'at-Ahad",
       "body": "Terbuka Untuk Umum",
-      "duration": 8000,
+      "duration": 20000,
       "speaker": "Ustadz Dr H Agus Masykur Lc, M.Fil."
     },
     {
@@ -58,7 +58,7 @@
       "title": "Hadist",
       "body": "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lain.",
       "narrator": "HR. Ahmad, Thabrani, Daruquthni",
-      "duration": 9000
+      "duration": 20000
     },
     {
       "id": "a12-poster-nasehat",
@@ -66,7 +66,7 @@
       "title": "Poster Nasehat",
       "body": "",
       "file": "slider2.html",
-      "duration": 18000
+      "duration": 30000
     },
     {
       "id": "a10-arbain-1",
@@ -74,7 +74,7 @@
       "title": "Hadist Arbain Nawawi #1",
       "body": "Sesungguhnya setiap amalan tergantung niatnya, dan setiap orang akan mendapatkan sesuai apa yang ia niatkan.",
       "narrator": "HR. Bukhari & Muslim, dari Umar bin Khattab radhiyallahu 'anhu",
-      "duration": 10000
+      "duration": 20000
     },
     {
       "id": "a13-kumpulan-video",
