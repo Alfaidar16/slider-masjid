@@ -37,11 +37,11 @@ html, body {
 }
 
 .brand-icon {
-  font-size: 3.4vh;
+  font-size: 5vh;
 }
 
 .brand-eyebrow {
-  font-size: 1.5vh;
+  font-size: 5vh;
   color: var(--primary);
   font-weight: 700;
   text-transform: uppercase;
@@ -49,7 +49,7 @@ html, body {
 }
 
 .brand-name {
-  font-size: 2.4vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--primary-dark);
   line-height: 1.15;
@@ -66,7 +66,7 @@ html, body {
 }
 
 .time-card-clock {
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
@@ -74,7 +74,7 @@ html, body {
 .time-card-date {
   text-align: right;
   line-height: 1.4;
-  font-size: 1.6vh;
+  font-size: 5vh;
 }
 
 .time-card-masehi { color: var(--text-dim); }
@@ -138,13 +138,13 @@ html, body {
 }
 
 .hero-eyebrow {
-  font-size: 2.2vh;
+  font-size: 5vh;
   font-weight: 600;
   color: var(--text);
 }
 
 .hero-title {
-  font-size: 5.4vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--accent);
   margin: 1vh 0;
@@ -152,7 +152,7 @@ html, body {
 }
 
 .hero-desc {
-  font-size: 2.4vh;
+  font-size: 5vh;
   color: var(--text);
   line-height: 1.5;
   max-width: 46vw;
@@ -163,7 +163,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 0.6vw;
-  font-size: 1.8vh;
+  font-size: 5vh;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -177,7 +177,7 @@ html, body {
 
 /* ---- Variant: kajian ---- */
 .kajian-speaker {
-  font-size: 2.6vh;
+  font-size: 5vh;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 1.2vh;
@@ -185,7 +185,7 @@ html, body {
 
 /* ---- Variant: infaq & keuangan ---- */
 .infaq-amount {
-  font-size: 7.5vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--text);
   font-variant-numeric: tabular-nums;
@@ -199,7 +199,7 @@ html, body {
 }
 
 .hadist-mark {
-  font-size: 10vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--accent);
   line-height: 0.5;
@@ -207,7 +207,7 @@ html, body {
 }
 
 .hadist-text {
-  font-size: 3.8vh;
+  font-size: 5vh;
   font-style: italic;
   color: var(--text);
   line-height: 1.55;
@@ -216,7 +216,7 @@ html, body {
 }
 
 .hadist-narrator {
-  font-size: 2vh;
+  font-size: 5vh;
   font-weight: 600;
   color: var(--accent);
   margin-top: 1.8vh;
@@ -230,7 +230,7 @@ html, body {
 }
 
 .nasehat-text {
-  font-size: 5.4vh;
+  font-size: 5vh;
   font-weight: 800;
   color: #fff;
   line-height: 1.4;
@@ -238,7 +238,7 @@ html, body {
 
 /* ---- Variant: laporan keuangan ---- */
 .laporan-period {
-  font-size: 7.2vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--accent);
   margin-bottom: 2.4vh;
@@ -263,13 +263,13 @@ html, body {
 }
 
 .laporan-label {
-  font-size: 2.8vh;
+  font-size: 5vh;
   font-weight: 700;
   color: #ffffff;
 }
 
 .laporan-value {
-  font-size: 3.6vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
@@ -306,11 +306,11 @@ html, body {
 }
 
 .hero-slide-prayer .hero-title {
-  font-size: 4.6vh;
+  font-size: 5vh;
 }
 
 .hero-countdown {
-  font-size: 8vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--text);
   font-variant-numeric: tabular-nums;
@@ -326,6 +326,10 @@ html, body {
 }
 
 .hero-prayer-grid .prayer-box {
+  font-size: 4vh;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
   background: rgba(255, 255, 255, 0.1);
   border: 0.15vh solid rgba(255, 255, 255, 0.2);
   border-radius: 1vh;
@@ -340,14 +344,14 @@ html, body {
 }
 
 .hero-prayer-grid .label {
-  font-size: 1.7vh;
+  font-size: 5vh;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
 .hero-prayer-grid .time {
-  font-size: 2.6vh;
+  font-size: 5vh;
   font-weight: 700;
   margin-top: 0.6vh;
   font-variant-numeric: tabular-nums;
@@ -380,7 +384,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.4vh;
+  font-size: 5vh;
   color: var(--primary-dark);
 }
 
@@ -392,14 +396,14 @@ html, body {
 }
 
 .feature-title {
-  font-size: 1.8vh;
+  font-size: 5vh;
   font-weight: 700;
   color: var(--text);
   white-space: nowrap;
 }
 
 .feature-sub {
-  font-size: 1.4vh;
+  font-size: 5vh;
   color: var(--text-dim);
   margin-top: 0.3vh;
   overflow: hidden;
@@ -424,7 +428,7 @@ html, body {
   background: var(--primary);
   color: var(--text);
   font-weight: 700;
-  font-size: 1.8vh;
+  font-size: 5vh;
   padding: 1.4vh 1.6vw;
   letter-spacing: 0.04em;
 }
@@ -442,7 +446,7 @@ html, body {
   display: inline-block;
   padding-left: 100%;
   color: var(--primary-dark);
-  font-size: 1.8vh;
+  font-size: 5vh;
   font-weight: 500;
   animation: ticker-scroll 25s linear infinite;
 }
@@ -479,7 +483,7 @@ html, body {
 }
 
 .pre-adzan-label {
-  font-size: 3.4vh;
+  font-size: 5vh;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 700;
@@ -487,14 +491,14 @@ html, body {
 }
 
 .pre-adzan-prayer-name {
-  font-size: 6vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--primary-dark);
   margin: 1vh 0;
 }
 
 .pre-adzan-countdown {
-  font-size: 18vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--primary-dark);
   font-variant-numeric: tabular-nums;
@@ -528,20 +532,20 @@ html, body {
 }
 
 .iqamah-label {
-  font-size: 4vh;
+  font-size: 5vh;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
 .iqamah-prayer-name {
-  font-size: 6vh;
+  font-size: 5vh;
   font-weight: 700;
   margin: 1vh 0;
 }
 
 .iqamah-countdown {
-  font-size: 18vh;
+  font-size: 5vh;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -555,7 +559,7 @@ html, body {
   transform: translateX(-50%);
   background: #b3261e;
   color: #fff;
-  font-size: 1.8vh;
+  font-size: 5vh;
   padding: 0.8vh 2vw;
   border-radius: 1vh;
   z-index: 60;

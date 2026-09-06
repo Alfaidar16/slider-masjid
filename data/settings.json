@@ -53,18 +53,6 @@
       "speaker": "Ustadz Dr H Agus Masykur Lc, M.Fil."
     },
     {
-      "id": "a1786069504540",
-      "type": "laporan",
-      "title": "Laporan Keuangan",
-      "body": "",
-      "duration": 15000,
-      "period": "07 Agustus 2026",
-      "saldoAwal": "61,907,500",
-      "pemasukan": "5,125,000",
-      "pengeluaran": "14,054,000",
-      "saldoAkhir": "52,978,500"
-    },
-    {
       "id": "a5-contoh-hadist",
       "type": "hadist",
       "title": "Hadist",
@@ -89,20 +77,32 @@
       "duration": 10000
     },
     {
-      "id": "a11-arbain-13",
-      "type": "hadist",
-      "title": "Hadist Arbain Nawawi #13",
-      "body": "Tidak beriman salah seorang di antara kalian sehingga ia mencintai saudaranya sebagaimana ia mencintai dirinya sendiri.",
-      "narrator": "HR. Bukhari & Muslim, dari Anas bin Malik radhiyallahu 'anhu",
-      "duration": 10000
-    },
-    {
       "id": "a13-kumpulan-video",
       "type": "custom",
       "title": "Kumpulan Video",
       "body": "",
       "file": "slider4.html",
       "duration": 25000
+    },
+    {
+      "id": "a1788732106593",
+      "type": "laporan",
+      "title": "Laporan Keuangan",
+      "body": "",
+      "duration": 20000,
+      "period": "04 September 2026",
+      "saldoAwal": "40,522,000",
+      "pemasukan": "3,848,000",
+      "pengeluaran": "6,317,500",
+      "saldoAkhir": "38,052,500"
+    },
+    {
+      "id": "a1788732191985",
+      "type": "hadist",
+      "title": "Hadist",
+      "body": "Tidak beriman salah seorang di antara kalian sehingga ia mencintai saudaranya sebagaimana ia mencintai dirinya sendiri.",
+      "duration": 20000,
+      "narrator": "Hadist Arbain Nawawi"
     }
   ]
 }
