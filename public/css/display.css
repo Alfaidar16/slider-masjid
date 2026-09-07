@@ -49,7 +49,7 @@ html, body {
 }
 
 .brand-name {
-  font-size: 3vmin;
+  font-size: 3vh;
   font-weight: 800;
   color: var(--primary-dark);
   line-height: 1.15;
@@ -66,7 +66,7 @@ html, body {
 }
 
 .time-card-clock {
-  font-size: 5vmin;
+  font-size: 5vh;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
 }
@@ -256,8 +256,8 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(244, 196, 48, 0.2);
-  border: 0.2vmin solid rgba(244, 196, 48, 0.55);
+  background: #fff;
+  border: 0.2vmin solid rgba(0, 0, 0, 0.15);
   border-radius: 1.2vmin;
   padding: 2vmin 2.4vw;
 }
@@ -265,13 +265,13 @@ html, body {
 .laporan-label {
   font-size: 5vmin;
   font-weight: 700;
-  color: #ffffff;
+  color: #000;
 }
 
 .laporan-value {
   font-size: 5vmin;
   font-weight: 800;
-  color: var(--accent);
+  color: #000;
   font-variant-numeric: tabular-nums;
 }
 
@@ -328,10 +328,10 @@ html, body {
 .hero-prayer-grid .prayer-box {
   font-size: 4vmin;
   font-weight: 600;
-  color: var(--text);
+  color: #000;
   line-height: 1.4;
-  background: rgba(255, 255, 255, 0.1);
-  border: 0.15vmin solid rgba(255, 255, 255, 0.2);
+  background: #fff;
+  border: 0.15vmin solid rgba(0, 0, 0, 0.2);
   border-radius: 1vmin;
   padding: 1.6vmin 0.5vw;
   transition: background 0.4s, border-color 0.4s, color 0.4s;
@@ -483,7 +483,7 @@ html, body {
 }
 
 .pre-adzan-label {
-  font-size: 5vmin;
+  font-size: 10vh;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-weight: 700;
@@ -491,14 +491,14 @@ html, body {
 }
 
 .pre-adzan-prayer-name {
-  font-size: 5vmin;
+  font-size: 10vh;
   font-weight: 800;
   color: var(--primary-dark);
   margin: 1vmin 0;
 }
 
 .pre-adzan-countdown {
-  font-size: 5vmin;
+  font-size: 10vh;
   font-weight: 800;
   color: var(--primary-dark);
   font-variant-numeric: tabular-nums;
@@ -590,6 +590,22 @@ html, body {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+}
+
+/* ---- Layar putih polos saat sholat berlangsung (agar tidak mengganggu) ---- */
+.shalat-blank-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 70;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.shalat-blank-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ---- Offline / error banner ---- */

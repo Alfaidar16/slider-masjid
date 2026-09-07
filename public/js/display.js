@@ -107,6 +107,31 @@ function updateIqamah(now) {
   overlay.classList.remove('show');
 }
 
+// ---- Layar putih polos: berlangsung sejak iqamah selesai (mulai sholat), agar tidak mengganggu ----
+const SHALAT_BLANK_DURATION_MS = {
+  Dhuhr: 12 * 60 * 1000,
+  Asr: 12 * 60 * 1000,
+  Maghrib: 15 * 60 * 1000,
+  Isha: 15 * 60 * 1000
+};
+
+function updateShalatBlank(now) {
+  const overlay = document.getElementById('shalatBlankOverlay');
+  const offsets = state.settings.iqamahOffsets;
+  for (const key of Object.keys(SHALAT_BLANK_DURATION_MS)) {
+    const offsetMin = offsets[key] || 0;
+    if (!offsetMin) continue;
+    const prayerTime = parseTimeToday(state.prayerTimes.timings[key]);
+    const iqamahTime = new Date(prayerTime.getTime() + offsetMin * 60000);
+    const blankEndTime = new Date(iqamahTime.getTime() + SHALAT_BLANK_DURATION_MS[key]);
+    if (now >= iqamahTime && now < blankEndTime) {
+      overlay.classList.add('show');
+      return;
+    }
+  }
+  overlay.classList.remove('show');
+}
+
 function tick() {
   const now = new Date();
   document.getElementById('clock').textContent = now.toLocaleTimeString('id-ID', { hour12: false });
@@ -123,6 +148,7 @@ function tick() {
     updatePreAdzan(now);
     updateAdzan(now);
     updateIqamah(now);
+    updateShalatBlank(now);
   }
 }
 
