@@ -72,6 +72,22 @@ function updatePreAdzan(now) {
   overlay.classList.remove('show');
 }
 
+const ADZAN_DURATION_MS = 5 * 60 * 1000;
+
+function updateAdzan(now) {
+  const overlay = document.getElementById('adzanOverlay');
+  for (const key of FARD_ORDER) {
+    const prayerTime = parseTimeToday(state.prayerTimes.timings[key]);
+    const adzanEndTime = new Date(prayerTime.getTime() + ADZAN_DURATION_MS);
+    if (now >= prayerTime && now < adzanEndTime) {
+      overlay.classList.add('show');
+      document.getElementById('adzanPrayerName').textContent = LABELS[key];
+      return;
+    }
+  }
+  overlay.classList.remove('show');
+}
+
 function updateIqamah(now) {
   const overlay = document.getElementById('iqamahOverlay');
   const offsets = state.settings.iqamahOffsets;
@@ -79,8 +95,9 @@ function updateIqamah(now) {
     const offsetMin = offsets[key] || 0;
     if (!offsetMin) continue;
     const prayerTime = parseTimeToday(state.prayerTimes.timings[key]);
+    const adzanEndTime = new Date(prayerTime.getTime() + ADZAN_DURATION_MS);
     const iqamahTime = new Date(prayerTime.getTime() + offsetMin * 60000);
-    if (now >= prayerTime && now < iqamahTime) {
+    if (now >= adzanEndTime && now < iqamahTime) {
       overlay.classList.add('show');
       document.getElementById('iqamahPrayerName').textContent = LABELS[key];
       document.getElementById('iqamahCountdown').textContent = formatDuration(iqamahTime - now);
@@ -104,6 +121,7 @@ function tick() {
     document.getElementById('heroCountdown').textContent = countdown;
     updateActiveBox(next.key);
     updatePreAdzan(now);
+    updateAdzan(now);
     updateIqamah(now);
   }
 }
