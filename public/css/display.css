@@ -155,7 +155,14 @@ html, body {
   font-size: 5vmin;
   color: var(--text);
   line-height: 1.5;
-  max-width: 46vw;
+  max-width: 100%;
+}
+
+/* ---- Variant: umum (slide selamat datang / pengumuman umum) ---- */
+.variant-umum {
+  max-width: 100%;
+  align-items: center;
+  text-align: center;
 }
 
 /* ---- Badge jenis konten ---- */
@@ -276,13 +283,13 @@ html, body {
 }
 
 .laporan-row.laporan-final {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--primary);
+  border-color: var(--primary);
 }
 
 .laporan-row.laporan-final .laporan-label,
 .laporan-row.laporan-final .laporan-value {
-  color: var(--primary-dark);
+  color: var(--text);
 }
 
 /* ---- Hero: slide jadwal sholat (lebar penuh + grid) ---- */
@@ -338,9 +345,9 @@ html, body {
 }
 
 .hero-prayer-grid .prayer-box.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--primary-dark);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--text);
 }
 
 .hero-prayer-grid .label {
@@ -573,7 +580,7 @@ html, body {
 }
 
 .iqamah-countdown {
-  font-size: 40vh;
+  font-size: 80vh;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;

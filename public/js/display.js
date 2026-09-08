@@ -221,7 +221,7 @@ function renderAnnounceSlide(item, isFirst) {
       </div>
     `;
   } else {
-    const eyebrow = isFirst ? 'Selamat Datang di' : 'Pengumuman';
+    const eyebrow = isFirst ? 'Ahlan Wa Sahlan' : 'Pengumuman';
     const title = isFirst
       ? ((state.settings && state.settings.mosque.name) || item.title)
       : item.title;
