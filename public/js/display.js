@@ -55,7 +55,7 @@ function updateActiveBox(activeKey) {
   });
 }
 
-const PRE_ADZAN_WINDOW_MS = 60 * 5000;
+const PRE_ADZAN_WINDOW_MS = 60 * 3000;
 
 function updatePreAdzan(now) {
   const overlay = document.getElementById('preAdzanOverlay');
@@ -114,8 +114,8 @@ function updateIqamah(now) {
 const SHALAT_BLANK_DURATION_MS = {
   Dhuhr: 12 * 60 * 1000,
   Asr: 12 * 60 * 1000,
-  Maghrib: 15 * 60 * 1000,
-  Isha: 15 * 60 * 1000
+  Maghrib: 12 * 60 * 1000,
+  Isha: 12 * 60 * 1000
 };
 
 function updateShalatBlank(now) {

@@ -18,11 +18,11 @@
     }
   },
   "iqamahOffsets": {
-    "Fajr": 13,
-    "Dhuhr": 13,
-    "Asr": 13,
-    "Maghrib": 8,
-    "Isha": 13
+    "Fajr": 11,
+    "Dhuhr": 11,
+    "Asr": 11,
+    "Maghrib": 6,
+    "Isha": 11
   },
   "theme": {
     "primaryColor": "#123a5e",
@@ -69,7 +69,7 @@
       "duration": 90000
     },
     {
-      "id": "a10-arbain-1", 
+      "id": "a10-arbain-1",
       "type": "hadist",
       "title": "Hadist Arbain Nawawi #1",
       "body": "Sesungguhnya setiap amalan tergantung niatnya, dan setiap orang akan mendapatkan sesuai apa yang ia niatkan.",
@@ -78,7 +78,7 @@
     },
     {
       "id": "a13-kumpulan-video",
-      "type": "custom", 
+      "type": "custom",
       "title": "Kumpulan Video",
       "body": "",
       "file": "slider4.html",

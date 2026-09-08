@@ -49,7 +49,7 @@ html, body {
 }
 
 .brand-name {
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: 800;
   color: var(--primary-dark);
   line-height: 1.15;
@@ -74,7 +74,7 @@ html, body {
 .time-card-date {
   text-align: right;
   line-height: 1.4;
-  font-size: 5vmin;
+  font-size: 4vh;
 }
 
 .time-card-masehi { color: var(--text-dim); }
@@ -163,6 +163,10 @@ html, body {
   max-width: 100%;
   align-items: center;
   text-align: center;
+}
+
+.variant-umum .hero-desc {
+  font-size: 10vh;
 }
 
 /* ---- Badge jenis konten ---- */
@@ -453,7 +457,7 @@ html, body {
   display: inline-block;
   padding-left: 100%;
   color: var(--primary-dark);
-  font-size: 5vmin;
+  font-size: 8vh;
   font-weight: 500;
   animation: ticker-scroll 25s linear infinite;
 }
@@ -580,7 +584,7 @@ html, body {
 }
 
 .iqamah-countdown {
-  font-size: 80vh;
+  font-size: 70vh;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
