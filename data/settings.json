@@ -9,20 +9,20 @@
     "method": 20,
     "timeCorrections": {
       "Imsak": 0,
-      "Fajr": 3,
+      "Fajr": 4,
       "Sunrise": -2,
       "Dhuhr": 4,
       "Asr": 4,
-      "Maghrib": 3,
-      "Isha": 3
+      "Maghrib": 4,
+      "Isha": 4
     }
   },
   "iqamahOffsets": {
     "Fajr": 11,
-    "Dhuhr": 11,
-    "Asr": 11,
+    "Dhuhr": 13,
+    "Asr": 13,
     "Maghrib": 6,
-    "Isha": 11
+    "Isha": 12
   },
   "theme": {
     "primaryColor": "#123a5e",
@@ -53,6 +53,18 @@
       "speaker": "Ustadz Dr H Agus Masykur Lc, M.Fil."
     },
     {
+      "id": "a1788732106593",
+      "type": "laporan",
+      "title": "Laporan Keuangan",
+      "body": "",
+      "duration": 25000,
+      "period": "04 September 2026",
+      "saldoAwal": "40,522,000",
+      "pemasukan": "3,848,000",
+      "pengeluaran": "6,317,500",
+      "saldoAkhir": "38,052,500"
+    },
+    {
       "id": "a5-contoh-hadist",
       "type": "hadist",
       "title": "Hadist",
@@ -66,7 +78,7 @@
       "title": "Poster Nasehat",
       "body": "",
       "file": "slider2.html",
-      "duration": 90000
+      "duration": 110000
     },
     {
       "id": "a10-arbain-1",
@@ -77,32 +89,20 @@
       "duration": 20000
     },
     {
-      "id": "a13-kumpulan-video",
-      "type": "custom",
-      "title": "Kumpulan Video",
-      "body": "",
-      "file": "slider4.html",
-      "duration": 25000
-    },
-    {
-      "id": "a1788732106593",
-      "type": "laporan",
-      "title": "Laporan Keuangan",
-      "body": "",
-      "duration": 20000,
-      "period": "04 September 2026",
-      "saldoAwal": "40,522,000",
-      "pemasukan": "3,848,000",
-      "pengeluaran": "6,317,500",
-      "saldoAkhir": "38,052,500"
-    },
-    {
       "id": "a1788732191985",
       "type": "hadist",
       "title": "Hadist",
       "body": "Tidak beriman salah seorang di antara kalian sehingga ia mencintai saudaranya sebagaimana ia mencintai dirinya sendiri.",
       "duration": 20000,
       "narrator": "Hadist Arbain Nawawi"
+    },
+    {
+      "id": "a13-kumpulan-video",
+      "type": "custom",
+      "title": "Kumpulan Video",
+      "body": "",
+      "file": "slider4.html",
+      "duration": 25000
     }
   ]
 }

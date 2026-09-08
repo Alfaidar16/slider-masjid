@@ -55,7 +55,7 @@ function updateActiveBox(activeKey) {
   });
 }
 
-const PRE_ADZAN_WINDOW_MS = 60 * 3000;
+const PRE_ADZAN_WINDOW_MS = 4 * 60 * 1000;
 
 function updatePreAdzan(now) {
   const overlay = document.getElementById('preAdzanOverlay');
@@ -88,6 +88,40 @@ function updateAdzan(now) {
   overlay.classList.remove('show');
 }
 
+let iqamahAudioCtx = null;
+let iqamahWarnedKey = null;
+let iqamahWarnedSec = null;
+
+function getIqamahAudioCtx() {
+  if (!iqamahAudioCtx) {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return null;
+    iqamahAudioCtx = new Ctx();
+  }
+  if (iqamahAudioCtx.state === 'suspended') {
+    iqamahAudioCtx.resume().catch(() => {});
+  }
+  return iqamahAudioCtx;
+}
+
+// Bunyi 1x "beep" singkat setiap detik sebagai hitungan mundur menjelang iqamah
+function playIqamahWarning() {
+  const ctx = getIqamahAudioCtx();
+  if (!ctx) return;
+  const startTime = ctx.currentTime;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = 'sine';
+  osc.frequency.value = 880;
+  gain.gain.setValueAtTime(0.0001, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.35, startTime + 0.02);
+  gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.22);
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  osc.start(startTime);
+  osc.stop(startTime + 0.25);
+}
+
 function updateIqamah(now) {
   const overlay = document.getElementById('iqamahOverlay');
   const offsets = state.settings.iqamahOffsets;
@@ -104,10 +138,17 @@ function updateIqamah(now) {
       const m = Math.floor(totalSec / 60);
       const s = totalSec % 60;
       document.getElementById('iqamahCountdown').textContent = `${pad(m)}:${pad(s)}`;
+      if (totalSec <= 10 && (iqamahWarnedKey !== key || iqamahWarnedSec !== totalSec)) {
+        iqamahWarnedKey = key;
+        iqamahWarnedSec = totalSec;
+        playIqamahWarning();
+      }
       return;
     }
   }
   overlay.classList.remove('show');
+  iqamahWarnedKey = null;
+  iqamahWarnedSec = null;
 }
 
 // ---- Layar putih polos: berlangsung sejak iqamah selesai (mulai sholat), agar tidak mengganggu ----
