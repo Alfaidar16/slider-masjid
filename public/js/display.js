@@ -72,7 +72,7 @@ function updatePreAdzan(now) {
   overlay.classList.remove('show');
 }
 
-const ADZAN_DURATION_MS = 5 * 60 * 1000;
+const ADZAN_DURATION_MS = 4 * 60 * 1000;
 
 function updateAdzan(now) {
   const overlay = document.getElementById('adzanOverlay');
@@ -96,11 +96,14 @@ function updateIqamah(now) {
     if (!offsetMin) continue;
     const prayerTime = parseTimeToday(state.prayerTimes.timings[key]);
     const adzanEndTime = new Date(prayerTime.getTime() + ADZAN_DURATION_MS);
-    const iqamahTime = new Date(prayerTime.getTime() + offsetMin * 60000);
+    const iqamahTime = new Date(adzanEndTime.getTime() + offsetMin * 60000);
     if (now >= adzanEndTime && now < iqamahTime) {
       overlay.classList.add('show');
-      document.getElementById('iqamahPrayerName').textContent = LABELS[key];
-      document.getElementById('iqamahCountdown').textContent = formatDuration(iqamahTime - now);
+      const totalSec = Math.max(0, Math.floor((iqamahTime - now) / 1000));
+      const pad = n => String(n).padStart(2, '0');
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      document.getElementById('iqamahCountdown').textContent = `${pad(m)}:${pad(s)}`;
       return;
     }
   }
@@ -122,7 +125,8 @@ function updateShalatBlank(now) {
     const offsetMin = offsets[key] || 0;
     if (!offsetMin) continue;
     const prayerTime = parseTimeToday(state.prayerTimes.timings[key]);
-    const iqamahTime = new Date(prayerTime.getTime() + offsetMin * 60000);
+    const adzanEndTime = new Date(prayerTime.getTime() + ADZAN_DURATION_MS);
+    const iqamahTime = new Date(adzanEndTime.getTime() + offsetMin * 60000);
     const blankEndTime = new Date(iqamahTime.getTime() + SHALAT_BLANK_DURATION_MS[key]);
     if (now >= iqamahTime && now < blankEndTime) {
       overlay.classList.add('show');

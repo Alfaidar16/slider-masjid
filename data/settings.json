@@ -8,13 +8,13 @@
     "longitude": 119.5567,
     "method": 20,
     "timeCorrections": {
-      "Imsak": 3,
+      "Imsak": 0,
       "Fajr": 3,
       "Sunrise": -2,
       "Dhuhr": 4,
       "Asr": 4,
-      "Maghrib": 4,
-      "Isha": 0
+      "Maghrib": 3,
+      "Isha": 3
     }
   },
   "iqamahOffsets": {

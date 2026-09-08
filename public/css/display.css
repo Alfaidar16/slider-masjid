@@ -572,31 +572,19 @@ html, body {
   pointer-events: auto;
 }
 
-.iqamah-label {
-  font-size: 10vh;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.iqamah-prayer-name {
-  font-size: 10vh;
-  font-weight: 700;
-  margin: 1vmin 0;
-}
-
 .iqamah-countdown {
-  font-size: 10vh;
+  font-size: 40vh;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  text-align: center;
 }
 
-/* ---- Layar putih polos saat sholat berlangsung (agar tidak mengganggu) ---- */
+/* ---- Layar gambar polos saat sholat berlangsung (agar tidak mengganggu) ---- */
 .shalat-blank-overlay {
   position: fixed;
   inset: 0;
-  background: #fff;
+  background: #000 url('/images/hero2.jpeg') center/cover no-repeat;
   z-index: 70;
   opacity: 0;
   pointer-events: none;
