@@ -55,7 +55,7 @@ function updateActiveBox(activeKey) {
   });
 }
 
-const PRE_ADZAN_WINDOW_MS = 4 * 60 * 1000;
+const PRE_ADZAN_WINDOW_MS = 3 * 60 * 1000;
 
 function updatePreAdzan(now) {
   const overlay = document.getElementById('preAdzanOverlay');
