@@ -19,10 +19,10 @@
   },
   "iqamahOffsets": {
     "Fajr": 11,
-    "Dhuhr": 13,
-    "Asr": 13,
+    "Dhuhr": 12,
+    "Asr": 12,
     "Maghrib": 5,
-    "Isha": 12
+    "Isha": 11
   },
   "theme": {
     "primaryColor": "#123a5e",
