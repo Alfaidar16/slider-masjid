@@ -19,7 +19,7 @@
   },
   "iqamahOffsets": {
     "Fajr": 11,
-    "Dhuhr": 12,
+    // "Dhuhr": 12,
     "Asr": 12,
     "Maghrib": 5,
     "Isha": 11
