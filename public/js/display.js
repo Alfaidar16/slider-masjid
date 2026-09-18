@@ -153,7 +153,7 @@ function updateIqamah(now) {
 
 // ---- Layar putih polos: berlangsung sejak iqamah selesai (mulai sholat), agar tidak mengganggu ----
 const SHALAT_BLANK_DURATION_MS = {
-  Fajr: 10 * 60 * 1000,
+  Fajr: 12 * 60 * 1000,
   Dhuhr: 11 * 60 * 1000,
   Asr: 12 * 60 * 1000,
   Maghrib: 10 * 60 * 1000,
