@@ -606,7 +606,7 @@ html, body {
   font-variant-numeric: tabular-nums;
   line-height: 0.8; /* rapatkan boks ke tinggi angka, sisa ruang dipakai hadist */
   text-align: center;
-  color: red;
+  color: #A52A2A;
 }
 
 /* Tinggi tetap: hitung mundur tidak bergeser walau panjang hadist berbeda-beda */
