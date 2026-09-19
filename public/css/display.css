@@ -574,7 +574,7 @@ html, body {
 .iqamah-overlay {
   position: fixed;
   inset: 0;
-  background:url('/images/hero6.png') center/cover no-repeat;
+  background: linear-gradient(160deg, var(--primary-dark), var(--primary));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -606,7 +606,7 @@ html, body {
   font-variant-numeric: tabular-nums;
   line-height: 0.8; /* rapatkan boks ke tinggi angka, sisa ruang dipakai hadist */
   text-align: center;
-  color: #A52A2A;
+  color: var(--accent);
 }
 
 /* Tinggi tetap: hitung mundur tidak bergeser walau panjang hadist berbeda-beda */

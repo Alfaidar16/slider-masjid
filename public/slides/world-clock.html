@@ -19,9 +19,11 @@
     height: 100%;
     overflow: hidden;
     font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    background: url('/images/hero6.png') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text);
+
+    /* background: url('/images/hero6.png') no-repeat center center fixed;
+    background-size: cover; */
+     background: linear-gradient(160deg, #123a2e, #1f6e4f);
+     color: var(--accent);
   }
 
   .wrap {
@@ -45,7 +47,7 @@
     letter-spacing: 0.5px;
   }
   .header .sub {
-    color:#000000;
+    color: var(--primary-dark);
     font-size: 3.1rem;
   }
 
@@ -70,7 +72,7 @@
   }
   .clock .badge {
     background: var(--accent);
-    color: #A52A2A;
+    color: var(--primary-dark);
     font-weight: 700;
     font-size: 2.6vh;
     padding: 0.6vh 2.4vh;
@@ -88,18 +90,18 @@
     font-size: 11vh;
     font-weight: 700;
     line-height: 1.1;
-    color: #A52A2A;
+    color: var(--primary-dark);
   }
   .clock .daynight { font-size: 7vh; }
   .clock .country {
-    color: #A52A2A;
+    color: var(--primary-dark);
     font-size: 4vh;
     margin-top: 0.5vh;
   }
   .clock .time {
     font-variant-numeric: tabular-nums;
     font-size: min(42vh, 34vw);
-    color: #A52A2A;
+    color: var(--primary-dark);
     font-weight: 700;
     letter-spacing: 0.02em;
     line-height: 1;
@@ -109,7 +111,7 @@
   .clock .date {
     margin-top: 2vh;
     font-size: 4.2vh;
-    color: #A52A2A;
+    color: var(--primary-dark);
   }
 
   /* -------- Penanda urutan kota -------- */
