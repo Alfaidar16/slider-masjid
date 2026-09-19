@@ -204,10 +204,10 @@ html, body {
 }
 
 /* ---- Variant: hadist (gaya kutipan) ---- */
-.variant-hadist {
+/* .variant-hadist {
   align-items: center;
   text-align: center;
-}
+} */
 
 .hadist-mark {
   font-size: 5vmin;
@@ -220,7 +220,7 @@ html, body {
 .hadist-text {
   font-size: 5vmin;
   font-style: italic;
-  color: var(--text);
+  color: var(--accent);
   line-height: 1.55;
   font-family: Georgia, 'Times New Roman', serif;
   max-width: 46vw;
@@ -229,7 +229,14 @@ html, body {
 .hadist-narrator {
   font-size: 5vmin;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--text);
+  margin-top: 1.8vmin;
+}
+
+.hadist-narrator-iqama {
+  font-size: 5vmin;
+  font-weight: 600;
+  color: black;
   margin-top: 1.8vmin;
 }
 
@@ -567,11 +574,13 @@ html, body {
 .iqamah-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(160deg, var(--primary-dark), var(--primary));
+  background:url('/images/hero6.png') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.1vh;
+  padding: 3vh 4vw;
   z-index: 50;
   opacity: 0;
   pointer-events: none;
@@ -583,12 +592,62 @@ html, body {
   pointer-events: auto;
 }
 
-.iqamah-countdown {
-  font-size: 70vh;
+/* .iqamah-label {
+  font-size: 8vh;
   font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+} */
+
+.iqamah-countdown {
+  font-size: min(57vh, 44vw);
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
-  line-height: 1;
+  line-height: 0.8; /* rapatkan boks ke tinggi angka, sisa ruang dipakai hadist */
   text-align: center;
+  color: red;
+}
+
+/* Tinggi tetap: hitung mundur tidak bergeser walau panjang hadist berbeda-beda */
+.iqamah-hadist {
+  width: 100%;
+  flex: 0 0 36vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.iqamah-hadist .hadist-mark {
+  font-size: 8vh;
+  line-height: 0.6;
+}
+
+.iqamah-overlay .iqamah-hadist .bg-hadist-iqamah {
+  padding: 10px 1px;
+  border-radius: 1vh;
+  /* background: #F0FFFF; */
+  transition: opacity 0.5s ease;
+}
+
+.iqamah-overlay .iqamah-hadist .bg-hadist-iqamah.is-fading {
+  opacity: 0;
+}
+
+.iqamah-hadist .hadist-text {
+  font-size: min(4.8vh, 2.8vw);
+  line-height: 1.4;
+  max-width: 100%;
+  margin: 0;
+  color: #000000;
+  text-wrap: balance;
+}
+
+.iqamah-hadist .hadist-narrator {
+  font-size: min(4.4vh, 2.5vw);
+  margin-top: 1.2vh;
 }
 
 /* ---- Layar gambar polos saat sholat berlangsung (agar tidak mengganggu) ---- */
@@ -643,6 +702,6 @@ html, body {
 
   .hero-desc,
   .hadist-text {
-    max-width: 92vw;
+    max-width: 62vw;
   }
 }

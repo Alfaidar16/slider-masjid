@@ -138,6 +138,7 @@ function updateIqamah(now) {
       const m = Math.floor(totalSec / 60);
       const s = totalSec % 60;
       document.getElementById('iqamahCountdown').textContent = `${pad(m)}:${pad(s)}`;
+      updateIqamahHadist(now - adzanEndTime);
       if (totalSec <= 10 && (iqamahWarnedKey !== key || iqamahWarnedSec !== totalSec)) {
         iqamahWarnedKey = key;
         iqamahWarnedSec = totalSec;
@@ -149,6 +150,7 @@ function updateIqamah(now) {
   overlay.classList.remove('show');
   iqamahWarnedKey = null;
   iqamahWarnedSec = null;
+  resetIqamahHadist();
 }
 
 // ---- Layar putih polos: berlangsung sejak iqamah selesai (mulai sholat), agar tidak mengganggu ----
@@ -180,7 +182,7 @@ function updateShalatBlank(now) {
 
 function tick() {
   const now = new Date();
-  document.getElementById('clock').textContent = now.toLocaleTimeString('id-ID', { hour12: false });
+  document.getElementById('clock').textContent = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
   document.getElementById('dateMasehi').textContent = now.toLocaleDateString('id-ID', {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
   });

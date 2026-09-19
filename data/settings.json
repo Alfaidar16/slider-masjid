@@ -103,6 +103,22 @@
       "body": "",
       "file": "slider4.html",
       "duration": 25000
+    },
+    {
+      "id": "a14-jam-dunia",
+      "type": "custom",
+      "title": "Jam Dunia",
+      "body": "",
+      "file": "world-clock.html",
+      "duration": 40000
+    },
+    {
+      "id": "a15-hitung-mundur-hari-besar",
+      "type": "custom",
+      "title": "Hitung Mundur Hari Besar Islam",
+      "body": "",
+      "file": "hijri-countdown.html",
+      "duration": 20000
     }
   ]
 }
