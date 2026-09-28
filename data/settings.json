@@ -9,10 +9,10 @@
     "method": 20,
     "timeCorrections": {
       "Imsak": 0,
-      "Fajr": 1,
+      "Fajr": 2,
       "Sunrise": 0,
       "Dhuhr": 2,
-      "Asr": -1,
+      "Asr": 2,
       "Maghrib": 3,
       "Isha": 3
     }
