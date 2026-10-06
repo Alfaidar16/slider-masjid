@@ -6,6 +6,7 @@
   --gold-bright:#f4c430;
   --ink-white:#f7f4ec;
   --ink-dim:#9fb3cc;
+  --sched-h:15vh;
 }
 
 *{ box-sizing:border-box; }
@@ -25,46 +26,51 @@ html,body{
   outline-offset:-14px;
 }
 
-/* ---------- LEFT: PRAYER SCHEDULE ---------- */
+/* ---------- BOTTOM: PRAYER SCHEDULE STRIP (melayang di atas video) ---------- */
 .schedule{
-  width:28%;
-  min-width:280px;
+  position:absolute; left:0; right:0; bottom:34px;
+  z-index:3;
+  height:var(--sched-h);
   display:flex;
-  flex-direction:column;
-  gap:10px;
-  padding:16px 14px;
-  background:linear-gradient(180deg, var(--navy-deep), #081b30);
+  align-items:stretch;
+  gap:12px;
+  padding:12px 24px;
+  background:linear-gradient(180deg, rgba(10,37,64,.80), rgba(8,27,48,.96));
   overflow:hidden;
 }
 
 .masjid-label{
+  display:flex; align-items:center;
+  width:9vw; min-width:120px;
+  flex-shrink:0;
   color:var(--gold-bright);
   font-size:0.85vw;
   min-font-size:12px;
   letter-spacing:.12em;
   text-transform:uppercase;
-  text-align:center;
-  padding-bottom:4px;
+  text-align:left;
+  line-height:1.5;
   font-weight:600;
   opacity:.85;
 }
 
 .prayer-row{
   flex:1;
+  min-width:0;
   display:flex;
   align-items:center;
   gap:14px;
   background:linear-gradient(135deg, var(--navy-card), var(--navy-mid));
   border-radius:10px;
   padding:0 18px;
-  border-left:5px solid transparent;
+  border-bottom:5px solid transparent;
   position:relative;
   transition:all .4s ease;
 }
 
 .prayer-row.active{
   background:linear-gradient(135deg, #1c4d82, var(--navy-mid));
-  border-left:5px solid var(--gold-bright);
+  border-bottom:5px solid var(--gold-bright);
   box-shadow:0 0 22px rgba(244,196,48,.25);
 }
 
@@ -144,8 +150,10 @@ video{
 }
 
 .bottom-overlay{
-  position:absolute; left:0; right:0; bottom:34px;
-  background:rgba(247,244,236,.96);
+  position:absolute; left:0; right:0; bottom:calc(34px + var(--sched-h));
+  background:linear-gradient(0deg, rgba(0,0,0,.55), transparent);
+  color:#fff;
+  text-shadow:0 2px 10px rgba(0,0,0,.65);
   padding:16px 30px;
   display:flex;
   align-items:center;
@@ -169,14 +177,15 @@ video{
 .masjid-name{
   font-size:1.7vw;
   font-weight:800;
-  color:var(--navy-deep);
+  color:#fff;
   margin:0;
 }
-.masjid-name .accent{ color:var(--gold); }
+.masjid-name .accent{ color:var(--gold-bright); }
 
 .masjid-address{
   font-size:.85vw;
-  color:#555;
+  color:var(--ink-white);
+  opacity:.85;
   margin-top:2px;
 }
 
