@@ -11,7 +11,7 @@
       "Imsak": 0,
       "Fajr": 4,
       "Sunrise": 0,
-      "Dhuhr": 4,
+      "Dhuhr": 5,
       "Asr": 3,
       "Maghrib": 4,
       "Isha": 4
@@ -58,11 +58,11 @@
       "title": "Laporan Keuangan",
       "body": "",
       "duration": 25000,
-      "period": "09 Oktober 2026",
-      "saldoAwal": "28,285,500",
-      "pemasukan": "2,719,000",
-      "pengeluaran": "3,658,000",
-      "saldoAkhir": "27,346,500"
+      "period": "16 Oktober 2026",
+      "saldoAwal": "27,346,500",
+      "pemasukan": "2,476,000",
+      "pengeluaran": "853,000",
+      "saldoAkhir": "853,000"
     },
     {
       "id": "a5-contoh-hadist",
