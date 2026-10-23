@@ -9,10 +9,10 @@
     "method": 20,
     "timeCorrections": {
       "Imsak": 0,
-      "Fajr": 4,
+      "Fajr": 3,
       "Sunrise": 0,
       "Dhuhr": 4,
-      "Asr": 5,
+      "Asr": 3,
       "Maghrib": 4,
       "Isha": 4
     }
@@ -58,11 +58,11 @@
       "title": "Laporan Keuangan",
       "body": "",
       "duration": 25000,
-      "period": "16 Oktober 2026",
-      "saldoAwal": "27,346,500",
-      "pemasukan": "2,476,000",
-      "pengeluaran": "853,000",
-      "saldoAkhir": "28,969,500"
+      "period": "23 Oktober 2026",
+      "saldoAwal": "28,969,500",
+      "pemasukan": "2,376,000",
+      "pengeluaran": "350,000",
+      "saldoAkhir": "30,995,500"
     },
     {
       "id": "a5-contoh-hadist",
