@@ -11,10 +11,10 @@
       "Imsak": 0,
       "Fajr": 4,
       "Sunrise": 0,
-      "Dhuhr": 6,
-      "Asr": 6,
+      "Dhuhr": 5,
+      "Asr": 5,
       "Maghrib": 5,
-      "Isha": 6
+      "Isha": 5
     }
   },
   "iqamahOffsets": {
