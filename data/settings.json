@@ -9,12 +9,12 @@
     "method": 20,
     "timeCorrections": {
       "Imsak": 0,
-      "Fajr": 4,
+      "Fajr": 5,
       "Sunrise": 0,
       "Dhuhr": 4,
-      "Asr": 5,
+      "Asr": 4,
       "Maghrib": 4,
-      "Isha": 5
+      "Isha": 4
     }
   },
   "iqamahOffsets": {
