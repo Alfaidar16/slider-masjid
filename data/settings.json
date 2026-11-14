@@ -11,10 +11,10 @@
       "Imsak": 0,
       "Fajr": 5,
       "Sunrise": 0,
-      "Dhuhr": 5,
-      "Asr": 4,
+      "Dhuhr": 4,
+      "Asr": 3,
       "Maghrib": 4,
-      "Isha": 4
+      "Isha": 3
     }
   },
   "iqamahOffsets": {
@@ -58,11 +58,11 @@
       "title": "Laporan Keuangan",
       "body": "",
       "duration": 25000,
-      "period": "06 November 2026",
-      "saldoAwal": "30,453,500",
-      "pemasukan": "1,839,500",
-      "pengeluaran": "2,353,000",
-      "saldoAkhir": "29,940,000"
+      "period": "13 November 2026",
+      "saldoAwal": "29,940,000",
+      "pemasukan": "3,314,000",
+      "pengeluaran": "6,476,000",
+      "saldoAkhir": "26,778,000"
     },
     {
       "id": "a5-contoh-hadist",
